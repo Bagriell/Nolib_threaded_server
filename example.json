@@ -1,42 +1,9 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "Event",
-    "description": "Event schema",
-    "type": "object",
     "properties": {
-        "resourceType": {
-            "description": "Type of the resource related to the event.",
-            "type": "string",
-            "const": "customer"
-        },
-        "resourceId": {
-            "description": "Id of the resource related to the event.",
-            "type": "integer"
-        },
-        "eventType": {
-            "description": "Type of the event",
-            "type": "string",
-            "enum": [
-                "resourceHasBeenCreated",
-                "resourceHasBeenUpdated",
-                "resourceHasBeenDeleted"
-            ]
-        },
-        "triggeredAt": {
-            "description": "When the message has been triggered.",
-            "type": "string",
-            "format": "date-time"
-        },
-        "triggeredBy": {
-            "type": "string",
-            "pattern": "^server-[0-9]{1,100}$"
-        }
-    },
-    "required": [
-        "resourceType",
-        "resourceId",
-        "eventType",
-        "triggeredAt",
-        "triggeredBy"
-    ]
+        "resourceType": "customer",
+        "resourceId": 25,
+        "eventType": "resourceHasBeenCreated",
+        "triggeredAt": "2018-11-13T20:20:39+00:00",
+        "triggeredBy": "server-25"
+    }
 }
