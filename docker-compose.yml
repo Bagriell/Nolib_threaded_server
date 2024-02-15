@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  task_server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "2000:2000"
+    networks:
+      - main_net
+    command: ["python", "main.py"]
+
+  dispatcher:
+    build:
+      context: ./dispatcher
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - main_net
+    depends_on:
+      - task_server
+    command: ["python", "main.py"]
+
+networks:
+  main_net: 
