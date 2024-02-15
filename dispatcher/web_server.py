@@ -56,9 +56,10 @@ class DispatcherHandler(BaseHTTPRequestHandler):
         try:
             conn = urlopen(req)
             conn.read()
-        except (HTTPError, URLError) as http_error:
-            logger.error(f"Bad request on task server: {http_error}")
+        except (HTTPError, URLError) as error:
+            logger.error(f"Bad request on task server: {error}")
             self._send_res(HTTPStatus.BAD_REQUEST)
+            raise error
             return
 
         logger.info("Task done.")

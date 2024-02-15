@@ -4,8 +4,8 @@ I Hope the code will suit your requirements ! 🤞
 
 ## commands
 
-- run proxy and servers:    
-`docker-compose up`
+- run dispatcher and servers:    
+`docker-compose up --build`
 
 
 - send request to server with payload(linux):  
@@ -16,7 +16,7 @@ curl -X POST \
   -d '{
     "properties": {
         "resourceType": "customer",
-        "resourceId": 25,
+        "resourceId": 15,
         "eventType": "resourceHasBeenCreated",
         "triggeredAt": "2018-11-13T20:20:39+00:00",
         "triggeredBy": "server-25"
@@ -29,7 +29,7 @@ curl -X POST \
 $body = @{
     "properties" = @{
         "resourceType" = "customer"
-        "resourceId" = 25
+        "resourceId" = 15
         "eventType" = "resourceHasBeenCreated"
         "triggeredAt" = "2018-11-13T20:20:39+00:00"
         "triggeredBy" = "server-25"
@@ -60,8 +60,9 @@ Other possibility could be divide server tasks by operation:
 - fix pylint tears such as logger formatting optimization
 - better smtp
 - auth system
+- cleaner networking in docker
 
 ## note
 - I used chatgpt to speed up things like docstring.
 - I took some time to do the interview test in order to test things and because i learnt some things interesting. 
-- smtp is hardly testable without using a configured gmail account
+- smtp is hardly testable without using a configured gmail account si I provided a screenshot of my mail getting spammed

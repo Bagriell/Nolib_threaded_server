@@ -6,9 +6,13 @@ services:
       context: ./server
       dockerfile: Dockerfile
     ports:
-      - "2000:2000"
+      - "2111:2111"
     networks:
-      - main_net
+      main_net:
+        ipv4_address: 192.20.0.5
+    volumes:
+      - ./server/customer_events.log:/server/customer_events.log
+      - ./server/airddm.db:/server/airddm.db
     command: ["python", "main.py"]
 
   dispatcher:
@@ -16,12 +20,16 @@ services:
       context: ./dispatcher
       dockerfile: Dockerfile
     ports:
-      - "8000:8000"
-    networks:
-      - main_net
+      - "8000:8000"   
     depends_on:
       - task_server
+    networks:
+      - main_net
     command: ["python", "main.py"]
 
+
 networks:
-  main_net: 
+  main_net:
+    ipam:
+      config: 
+        - subnet: 192.20.0.0/24
