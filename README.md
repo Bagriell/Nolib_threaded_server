@@ -1,6 +1,6 @@
-# Technical test Airddm
+# No lib http server with threads
 
-I Hope the code will suit your requirements ! 🤞
+Server that listen for data in /event and write data to sqlite, logfile and send by smtp.
 
 ## commands
 
