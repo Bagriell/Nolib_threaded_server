@@ -61,8 +61,3 @@ Other possibility could be divide server tasks by operation:
 - better smtp
 - auth system
 - cleaner networking in docker
-
-## note
-- I used chatgpt to speed up things like docstring.
-- I took some time to do the interview test in order to test things and because i learnt some things interesting. 
-- smtp is hardly testable without using a configured gmail account si I provided a screenshot of my mail getting spammed
